@@ -26,7 +26,7 @@ namespace WebAtividadeEntrevista.Controllers
         public JsonResult Incluir(ClienteModel model)
         {
             BoCliente bo = new BoCliente();
-            
+
             if (!this.ModelState.IsValid)
             {
                 List<string> erros = (from item in ModelState.Values
@@ -68,7 +68,7 @@ namespace WebAtividadeEntrevista.Controllers
         public JsonResult Alterar(ClienteModel model)
         {
             BoCliente bo = new BoCliente();
-       
+
             if (!this.ModelState.IsValid)
             {
                 List<string> erros = (from item in ModelState.Values
@@ -80,29 +80,22 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
-                if (bo.VerificarExistencia(model.CPF.Replace(".", "").Replace("-", "")))
+                bo.Alterar(new Cliente()
                 {
-                    return Json("CPF já cadastrado!");
-                }
-                else
-                {
-                    bo.Alterar(new Cliente()
-                    {
-                        Id = model.Id,
-                        CEP = model.CEP,
-                        Cidade = model.Cidade,
-                        Email = model.Email,
-                        Estado = model.Estado,
-                        Logradouro = model.Logradouro,
-                        Nacionalidade = model.Nacionalidade,
-                        Nome = model.Nome,
-                        Sobrenome = model.Sobrenome,
-                        CPF = model.CPF.Replace(".", "").Replace("-", ""),
-                        Telefone = model.Telefone
-                    });
+                    Id = model.Id,
+                    CEP = model.CEP,
+                    Cidade = model.Cidade,
+                    Email = model.Email,
+                    Estado = model.Estado,
+                    Logradouro = model.Logradouro,
+                    Nacionalidade = model.Nacionalidade,
+                    Nome = model.Nome,
+                    Sobrenome = model.Sobrenome,
+                    CPF = model.CPF.Replace(".", "").Replace("-", ""),
+                    Telefone = model.Telefone
+                });
 
-                    return Json("Cadastro alterado com sucesso");
-                }
+                return Json("Cadastro alterado com sucesso");
             }
         }
 
@@ -130,7 +123,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Telefone = cliente.Telefone
                 };
 
-            
+
             }
 
             return View(model);

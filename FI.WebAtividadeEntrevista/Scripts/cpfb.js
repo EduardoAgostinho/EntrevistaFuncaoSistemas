@@ -8,6 +8,15 @@
     e.target.value = cpfPattern;
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const url = window.location.href; // Obtém a URL atual
+    const input = document.getElementById("CPFB");
+
+    if (url.includes("Alterar")) {
+        input.disabled = true; // Desabilita o campo se a URL contiver "Alterar"
+    }
+});
+
 function validaCPF(cpf) {
     cpf = cpf.replace(/\D+/g, '');
     if (cpf.length !== 11) return false;
