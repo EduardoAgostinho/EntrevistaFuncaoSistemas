@@ -1,0 +1,38 @@
+﻿
+<div id="myModal" class="modal fade">
+    <div class="modal-lg modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Beneficiários</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formBeneficiario" method="post">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="CPFB">CPF:</label>
+                                    <input required="required" type="text" class="form-control" id="CPFB" name="CPFB" placeholder="Ex.: 111.222.333.44" maxlength="14">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-5">
+                                <div class="form-group">
+                                    <label for="NomeB">Nome:</label>
+                                    <input required="required" type="text" class="form-control" id="NomeB" name="NomeB" placeholder="Ex.: Maria" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-3">
+                                <div class="form-group">
+                                    <button type="button" onclick="valida_cpf_benef('CPFB')" class="btn btn-sm btn-success" style="margin-top:25px; width:100px;">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script language="javascript" type="text/javascript" src="~/Scripts/cpfb.js"></script>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

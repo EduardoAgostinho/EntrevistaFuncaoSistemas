@@ -1,0 +1,18 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media screen and (min-width: 992px) {
+    .modal-lg {
+        width: 600px;
+        height: 400px;
+        /* New width for large modal */
+    }
+}
