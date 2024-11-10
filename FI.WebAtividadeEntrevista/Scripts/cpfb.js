@@ -8,15 +8,6 @@
     e.target.value = cpfPattern;
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const url = window.location.href; // Obtém a URL atual
-    const input = document.getElementById("CPFB");
-
-    if (url.includes("Alterar")) {
-        input.disabled = true; // Desabilita o campo se a URL contiver "Alterar"
-    }
-});
-
 function validaCPF(cpf) {
     cpf = cpf.replace(/\D+/g, '');
     if (cpf.length !== 11) return false;
@@ -56,7 +47,11 @@ function valida_cpf_benef(cpf) {
         else {
             var cpfb = document.getElementById('CPFB').value;
             var nomeb = document.getElementById('NomeB').value;
-            var idcliente = obterId();
+
+            var url = window.location.href;
+            var array = url.split('/');
+            var lastsegment = array[array.length - 1];
+            var idcliente = lastsegment;
 
             const beneficiario = {
                 CPFB: cpfb,
@@ -91,12 +86,7 @@ function valida_cpf_benef(cpf) {
 }
 
 function obterId() {
-    var url = window.location.href;
-    var array = url.split('/');
-
-    var lastsegment = array[array.length - 1];
-    console.log(lastsegment);
-    return lastsegment;
+   
 }
 
 document.addEventListener("DOMContentLoaded", function () {
