@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FI.WebAtividadeEntrevista.Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace FI.WebAtividadeEntrevista.Models
     public class ClienteModel
     {
         public long Id { get; set; }
-        
+
+        public BeneficiarioModel BeneficiarioModel { get; set; }
+
         /// <summary>
         /// CEP
         /// </summary>
@@ -28,7 +31,7 @@ namespace FI.WebAtividadeEntrevista.Models
         /// <summary>
         /// E-mail
         /// </summary>
-        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Digite um e-mail válido")]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Digite um e-mail válido!")]
         public string Email { get; set; }
 
         /// <summary>
@@ -66,6 +69,7 @@ namespace FI.WebAtividadeEntrevista.Models
         /// CPF
         /// </summary>
         [Required]
+        [Cpf(ErrorMessage = "O CPF informado é inválido!")]
         public string CPF { get; set; }
 
         /// <summary>
