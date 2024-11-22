@@ -35,18 +35,24 @@ function valida_cpf_benef(cpf) {
 
     if (!validaCPF(cpf)) {
         event.preventDefault(); // Impede o envio do formulário
-        ModalDialog("CPF inválido", "Verifique o número digitado."); //Exibe o Modal
+        ModalDialog("CPF inválido", "O CPF informado é inválido!"); //Exibe o Modal
         document.getElementById('CPFB').focus(); // Foca no campo de CPF após o erro
     }
     else {
         if (!validaCPF(cpf)) {
             event.preventDefault(); // Impede o envio do formulário
-            ModalDialog("CPF inválido", "Verifique o número digitado."); //Exibe o Modal
+            ModalDialog("CPF inválido", "O CPF informado é inválido!"); //Exibe o Modal
             document.getElementById('CPFB').focus(); // Foca no campo de CPF após o erro
         }
         else {
             var cpfb = document.getElementById('CPFB').value;
             var nomeb = document.getElementById('NomeB').value;
+
+            if (nomeb == "") {
+                ModalDialog("Campo Obrigatório", "O Nome é obrigatório.");
+                document.getElementById('NomeB').focus();
+                return;
+            }
 
             var url = window.location.href;
             var array = url.split('/');
